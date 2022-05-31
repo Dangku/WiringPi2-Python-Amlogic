@@ -54,19 +54,19 @@ class sdist_ext_first(sdist):
         return sdist.run(self)
 
 
-_odroid_wiringpi = Extension(
-    '_odroid_wiringpi',
+_wiringpi = Extension(
+    '_wiringpi',
     include_dirs=['WiringPi/wiringPi','WiringPi/devLib'],
     sources=sources,
     swig_opts=['-threads'],
-    extra_link_args=['-lcrypt', '-lrt'],
+    extra_link_args=['-lcrypt', '-lrt']
 )
 
 setup(
-    name = 'odroid_wiringpi',
-    version = '3.7',
-    ext_modules = [ _odroid_wiringpi ],
-    py_modules = ["odroid_wiringpi"],
+    name = 'wiringpi',
+    version = '3.8',
+    ext_modules = [ _wiringpi ],
+    py_modules = ["wiringpi"],
     install_requires=[],
     cmdclass = {'build_py' : build_py_ext_first, 'sdist' : sdist_ext_first},
 )
